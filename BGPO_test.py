@@ -69,25 +69,8 @@ def run_task(ctxt=None, *_):
         minibatch_size = 128
         vf_minibatch = 128
 
-        # minibatch_size = 128
-        # vf_minibatch = 128
-
-        # n_timestep = 5e5
-        # n_counts = 5
         name = 'CartPole'
 
-        # # batchsize:1
-        # lr = 0.1
-        # w = 1.5
-        # c = 15
-
-        #batchsize:50
-        # lr = 0.75
-        # c = 100
-        # w = 1
-
-        # for MBPG+:
-        # lr = 1.2
         if args.type == 'Diag':
             lr = 0.5
             c = 50
@@ -111,52 +94,17 @@ def run_task(ctxt=None, *_):
         discount = 0.995
         model_path = './init/CartPole_policy.pth'
 
-    # elif args.env == 'DPendulum':
-    #     gymenv = GarageEnv(env_name='InvertedDoublePendulum-v2')
-    #
-    #     env = gymenv
-    #
-    #     batch_size = 50000
-    #     max_length = 500
-    #     # n_timestep = 5e5
-    #     # n_counts = 5
-    #     name = 'DPendulm'
-    #
-    #     minibatch_size = 512
-    #     vf_minibatch = 512
-    #
-    #     th = 1.2
-    #     # batchsize:50
-    #     lr = 0.25
-    #     c = 300
-    #     w = 1
-    #     # lam = 0.01
-    #     #
-    #     # g_max = 0.3
-    #
-    #     if args.type=='Diag':
-    #         g_max = 1.0
-    #         lam = 1e-3
-    #     else:
-    #         g_max = 0.05
-    #         lam = 0.001
-    #
-    #     discount = 0.99
-    #     model_path = './init/Pendulum_policy.pth'
-
     elif args.env == 'Pendulum':
         env = GarageEnv(env_name='InvertedPendulum-v2')
 
         batch_size = 50000
         max_length = 500
-        # n_timestep = 5e5
-        # n_counts = 5
         minibatch_size = 512
         vf_minibatch = 512
         name = 'Pendulm'
-        # grad_factor = 100
+
         th = 1.2
-        # batchsize:50
+
         lr = 0.25
         c = 300
         w = 1
@@ -228,9 +176,6 @@ def run_task(ctxt=None, *_):
         else:
 
             g_max = 0.10
-            # lam = 0.001
-            # if args.pow == 3.0:
-            #     lam = 4e-4
             lam = 0.001 * (3.0/args.pow)*4
         n_epochs = 150
         model_path = './init/MountainCar_policy.pth'
@@ -258,13 +203,9 @@ def run_task(ctxt=None, *_):
         c = 40*((1/mf)**2)*0.75
         w = 1
         m_lower = 0.6
-        # mf = 0.1/0.35
-        # lr = 0.35*mf
-        # c = 75*((1/mf)**2)*0.6
-        # w = 1
         lam = 6e-3
         sch = CosLR(lam, T_max=n_epochs)
-        # sch =  CosLR(lam, T_max=n_epochs)
+
 
         g_max = 0.1
         discount = 0.99
@@ -307,15 +248,10 @@ def run_task(ctxt=None, *_):
         batch_size = 50000
         max_length = 500
         n_epochs = 200
-        # n_timestep = 5e5
-        # n_counts = 5
 
         minibatch_size = 512
         vf_minibatch = 512
 
-        # grad_factor = 100
-
-        # batchsize:50
         lr = 0.5
         c = 50
         w = 1

@@ -69,24 +69,12 @@ def run_task(ctxt=None, *_):
         minibatch_size = 64
         vf_minibatch = 64
 
-        # n_timestep = 5e5
-        # n_counts = 5
         name = 'CartPole'
 
-        # # batchsize:1
-        # lr = 0.1
-        # w = 1.5
-        # c = 15
-
-        # batchsize:50
         lr = 0.75
         c = 100
         w = 1
 
-        # for MBPG+:
-        # lr = 1.2
-
-        # g_max = 0.03
         lam = 0.0015
         discount = 0.995
         g_max = 1.0
@@ -124,11 +112,6 @@ def run_task(ctxt=None, *_):
         vf_minibatch = 256
         name = 'MountainCar'
 
-        # lr = 0.016
-        #
-        # c = 12000*2
-        # w = 1
-
         lr = 0.0175
         c = 6000*2
         w = 1
@@ -149,8 +132,6 @@ def run_task(ctxt=None, *_):
 
         batch_size = 50000
         max_length = 500
-        # n_timestep = 5e5
-        # n_counts = 5
 
         minibatch_size = 256
         vf_minibatch = 256
@@ -299,23 +280,16 @@ def run_task(ctxt=None, *_):
         batch_size = 50000
         max_length = 500
         n_epochs = 200
-        # n_timestep = 5e5
-        # n_counts = 5
 
         minibatch_size = 512
         vf_minibatch = 512
 
-        # grad_factor = 100
         th = 1.2
-        # batchsize:50
+
         lr = 0.75
         c = 25
         w = 1
         lam = 5e-4
-
-        # g_max = 0.3
-
-        # sch = CosLR(lam, T_max=n_epochs)
 
         g_max = 1.0
         discount = 0.99
